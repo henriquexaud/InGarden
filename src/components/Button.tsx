@@ -1,5 +1,9 @@
 import React from 'react';
-import { TouchableOpacity, Text, StyleSheet } from 'react-native';
+import {
+    TouchableOpacity,
+    Text,
+    StyleSheet
+} from 'react-native';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -30,8 +34,8 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 16,
-        width: 130,
-        height: 56
+        height: 56,
+        padding: 20
     },
     buttonText: {
         color: colors.white,
