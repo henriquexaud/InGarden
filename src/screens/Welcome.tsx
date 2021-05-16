@@ -5,12 +5,12 @@ import {
     StyleSheet,
     Image,
     Dimensions,
-    TouchableOpacity
+    TouchableOpacity,
+    View
 } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 
 import wateringImg from '../assets/watering.png';
-import { Button } from '../components/Button';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
@@ -18,32 +18,34 @@ export function Welcome() {
 
     return (
         <SafeAreaView style={styles.container}>
+            <View style={styles.wrapper}>
 
-            <Text style={styles.title}>
-                Cuide de {'\n'}
-                suas plantas {'\n'}
-                e animais
-            </Text>
+                <Text style={styles.title}>
+                    Cuide de {'\n'}
+                suas plantas de {'\n'}
+                forma divertida {'\n'}
 
-            <Image
-                source={wateringImg}
-                style={styles.image}
-                resizeMode='contain'
-            />
-
-
-
-            <TouchableOpacity
-                style={styles.button}
-                activeOpacity={0.7}
-            >
-                <Text style={styles.buttonText}>
-                    <Feather name='chevron-right'
-                        style={styles.buttonIcon} />
                 </Text>
 
-            </TouchableOpacity>
+                <Image
+                    source={wateringImg}
+                    style={styles.image}
+                    resizeMode='contain'
+                />
 
+
+
+                <TouchableOpacity
+                    style={styles.button}
+                    activeOpacity={0.7}
+                >
+
+                    <Feather name='chevron-right'
+                        style={styles.buttonIcon} />
+
+
+                </TouchableOpacity>
+            </View>
         </SafeAreaView>
     )
 }
@@ -51,12 +53,16 @@ export function Welcome() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+
+    },
+    wrapper: {
+        flex: 1,
         justifyContent: 'space-around',
         alignItems: 'center',
-        paddingVertical: 50
+        paddingVertical: 80
     },
     title: {
-        fontSize: 32,
+        fontSize: 28,
         textAlign: 'center',
         color: colors.heading,
         fontFamily: fonts.heading
@@ -70,14 +76,11 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderRadius: 16,
         width: 60,
-        height: 60
-    },
-    buttonText: {
-        color: colors.white,
-        fontSize: 30,
-        fontFamily: fonts.complement
+        height: 60,
+        marginTop: 35
     },
     buttonIcon: {
-        fontSize: 24
+        fontSize: 32,
+        color: colors.white
     }
 })
