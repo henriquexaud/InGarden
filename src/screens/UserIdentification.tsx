@@ -16,13 +16,21 @@ import colors from '../styles/colors';
 export function UserIdentification() {
 
     const [isFocused, setIsFocused] = useState(false);
+    const [isFilled, setIsFilled] = useState(false);
+    const [name, setName] = useState<string>();
 
     function handleInputBlur() {
-        setIsFocused(false)
+        setIsFocused(false);
+        setIsFilled(!!name);
     }
 
     function handleInputFocus() {
-        setIsFocused(true)
+        setIsFocused(true);
+    }
+
+    function handleInputChange(value: string) {
+        setIsFilled(!!value);
+        setName(value);
     }
 
     return (
@@ -32,28 +40,34 @@ export function UserIdentification() {
                 behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
             >
                 <View style={styles.content}>
-                    <View style={styles.container}>
-                        <Text style={styles.emoji}>
-                            😃
-                        </Text>
-                        <Text style={styles.text}>
-                            Como podemos {'\n'}
-                            chamar você?
-                        </Text>
+                    <View style={styles.form}>
+                        <View style={styles.header}>
+                            <Text style={styles.emoji}>
+                                {isFilled ? '😃' : '😄'}
+                            </Text>
 
+                            <Text style={styles.text}>
+                                Como podemos {'\n'}
+                                chamar você?
+                            </Text>
+
+                        </View>
                         <TextInput
                             style={[
                                 styles.input,
-                                isFocused && { borderColor: colors.green }
+                                (isFocused || isFilled) &&
+                                { borderColor: colors.green }
                             ]}
                             placeholder='Digite um nome'
                             onBlur={handleInputBlur}
                             onFocus={handleInputFocus}
+                            onChangeText={handleInputChange}
                         />
 
                         <View style={styles.button}>
                             <Button title='Confirmar' />
                         </View>
+
                     </View>
                 </View>
             </KeyboardAvoidingView>
@@ -72,19 +86,26 @@ const styles = StyleSheet.create({
     content: {
         flex: 1,
         width: '100%',
-        paddingHorizontal: 54
+    },
+    form: {
+        flex: 1,
+        justifyContent: 'center',
+        paddingHorizontal: 54,
+        alignItems: 'center',
     },
     header: {
-        flex: 1,
         alignItems: 'center',
     },
     emoji: {
-        fontSize: 24,
-        marginBottom: 20
+        fontSize: 32,
+        marginTop: 20
     },
     text: {
         fontSize: 24,
-        textAlign: 'center'
+        textAlign: 'center',
+        lineHeight: 32,
+        color: colors.heading,
+        marginTop: 20
     },
     input: {
         borderBottomWidth: 1,
@@ -97,6 +118,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
     },
     button: {
+        width: '100%',
         marginTop: 40,
+        paddingHorizontal: 20
     }
 })
