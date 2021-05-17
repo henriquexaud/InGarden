@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import {
     SafeAreaView,
     StyleSheet,
@@ -23,13 +23,16 @@ export function Confirmation() {
                 </Text>
 
                 <Text style={styles.subtitle}>
-                    Agora vamos cuidar de suas plantas!
+                    Agora vamos começar a cuidar de suas plantinhas.
                 </Text>
+
+                <View style={styles.footer}>
+                    <Button title='Começar' />
+                </View>
             </View>
 
-            <View>
-                <Button title='Começar' />
-            </View>
+
+
         </SafeAreaView>
     )
 }
@@ -44,22 +47,33 @@ const styles = StyleSheet.create({
     },
     content: {
         flex: 1,
+        justifyContent: 'center',
         width: '100%',
         alignItems: 'center',
-
+        paddingHorizontal: 60
     },
     emoji: {
-        fontSize: 32,
+        fontSize: 60,
     },
     title: {
         fontSize: 22,
         fontFamily: fonts.heading,
         textAlign: 'center',
-        colors: colors.heading,
-
+        color: colors.heading,
+        lineHeight: 38,
+        marginTop: 15
     },
     subtitle: {
-
+        fontSize: 17,
+        fontFamily: fonts.text,
+        textAlign: 'center',
+        paddingVertical: 10,
+        color: colors.heading
     },
-
+    footer: {
+        justifyContent: 'center',
+        alignItems: 'center',
+        paddingHorizontal: 50,
+        marginTop: 20
+    }
 })
