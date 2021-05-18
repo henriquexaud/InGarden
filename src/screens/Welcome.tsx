@@ -29,9 +29,8 @@ export function Welcome() {
 
                 <Text style={styles.title}>
                     Cuide de {'\n'}
-                suas plantas de {'\n'}
-                forma divertida {'\n'}
-
+                    suas plantas de {'\n'}
+                    forma divertida {'\n'}
                 </Text>
 
                 <Image
@@ -40,16 +39,16 @@ export function Welcome() {
                     resizeMode='contain'
                 />
 
-
-
                 <TouchableOpacity
                     style={styles.button}
                     activeOpacity={0.7}
                     onPress={handleStart}
                 >
 
-                    <Feather name='chevron-right'
-                        style={styles.buttonIcon} />
+                    <Feather
+                        name='chevron-right'
+                        style={styles.buttonIcon}
+                    />
 
                 </TouchableOpacity>
             </View>
@@ -60,7 +59,6 @@ export function Welcome() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-
     },
     wrapper: {
         flex: 1,

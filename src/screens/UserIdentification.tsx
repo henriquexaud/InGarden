@@ -81,7 +81,6 @@ export function UserIdentification() {
                                     onPress={handleSubmit}
                                 />
                             </View>
-
                         </View>
                     </View>
                 </TouchableWithoutFeedback>

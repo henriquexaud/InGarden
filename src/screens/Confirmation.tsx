@@ -30,9 +30,6 @@ export function Confirmation() {
                     <Button title='Começar' />
                 </View>
             </View>
-
-
-
         </SafeAreaView>
     )
 }
