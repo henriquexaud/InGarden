@@ -29,8 +29,8 @@ export function Welcome() {
 
                 <Text style={styles.title}>
                     Cuide de {'\n'}
-                    suas plantas de {'\n'}
-                    forma divertida {'\n'}
+                    suas plantas {'\n'}
+                    de forma fácil {'\n'}
                 </Text>
 
                 <Image
