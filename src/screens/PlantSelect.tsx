@@ -112,7 +112,8 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: colors.background,
-        padding: 30
+        paddingTop: 30,
+        paddingLeft: 30
     },
     header: {
         paddingBottom: 30
@@ -135,6 +136,7 @@ const styles = StyleSheet.create({
     },
     plants: {
         flex: 1,
-        justifyContent: 'center'
+        justifyContent: 'center',
+        marginRight: 30
     }
 })
