@@ -14,22 +14,54 @@ import fonts from '../styles/fonts';
 import { EnviromentButton } from '../components/EnviromentButton';
 
 import api from '../services/api';
+import { PlantCardPrimary } from '../components/PlantCardPrimary';
 
 interface EnviromentProps {
     key: string;
     title: string;
 }
 
+interface PlantProps {
+    id: string;
+    name: string;
+    about: string;
+    water_tips: string;
+    photo: string;
+    environments: [string];
+    frequency: {
+        times: number;
+        repeat_every: string
+    }
+}
+
 export function PlantSelect() {
     const [enviroments, setEnviroments] = useState<EnviromentProps[]>([]);
+    const [plants, setPlants] = useState<PlantProps[]>([]);
 
     useEffect(() => {
         async function fetchEnviroment() {
-            const { data } = await api.get('plants_environments');
-            setEnviroments(data);
+            const { data } = await api
+                .get('plants_environments?_sort=title&_order=asc');
+            setEnviroments([
+                {
+                    key: 'all',
+                    title: 'Todos',
+                },
+                ...data
+            ]);
         }
 
         fetchEnviroment();
+
+    }, [])
+
+    useEffect(() => {
+        async function fetchPlants() {
+            const { data } = await api.get('plants?_sort=name&_order=asc');
+            setPlants(data);
+        }
+
+        fetchPlants();
 
     }, [])
 
@@ -46,7 +78,7 @@ export function PlantSelect() {
                     Você deseja colocar sua planta?
                 </Text>
             </View>
-            <View>
+            <View style={styles.enviromentList}>
                 <FlatList
                     data={enviroments}
                     renderItem={({ item }) => (
@@ -59,6 +91,19 @@ export function PlantSelect() {
                     contentContainerStyle={styles.enviromentList}
                 />
             </View>
+
+            <View style={styles.plants}>
+                <FlatList
+                    data={plants}
+                    renderItem={({ item }) => (
+                        <PlantCardPrimary
+                            data={item}
+                        />
+                    )}
+                    showsVerticalScrollIndicator={false}
+                    numColumns={2}
+                />
+            </View>
         </View >
     )
 }
@@ -66,10 +111,11 @@ export function PlantSelect() {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: colors.background
+        backgroundColor: colors.background,
+        padding: 30
     },
     header: {
-        padding: 30
+        paddingBottom: 30
     },
     title: {
         fontSize: 17,
@@ -85,8 +131,10 @@ const styles = StyleSheet.create({
     enviromentList: {
         height: 40,
         justifyContent: 'center',
-        paddingBottom: 5,
-        marginLeft: 5,
-        marginVertical: 10,
+        marginBottom: 20
+    },
+    plants: {
+        flex: 1,
+        justifyContent: 'center'
     }
 })
