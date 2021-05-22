@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
-
-import { Button } from '../components/Button';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { Feather } from '@expo/vector-icons';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -36,10 +36,18 @@ export function Confirmation() {
                 </Text>
 
                 <View style={styles.footer}>
-                    <Button
-                        title='Começar'
+                    <TouchableOpacity
+                        style={styles.button}
+                        activeOpacity={0.7}
                         onPress={handleMoveOn}
-                    />
+                    >
+
+                        <Feather
+                            name='chevron-right'
+                            style={styles.buttonIcon}
+                        />
+
+                    </TouchableOpacity>
                 </View>
             </View>
         </SafeAreaView>
@@ -84,5 +92,18 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         paddingHorizontal: 50,
         marginTop: 20
+    },
+    button: {
+        backgroundColor: colors.green,
+        justifyContent: 'center',
+        alignItems: 'center',
+        borderRadius: 16,
+        width: 60,
+        height: 60,
+        marginTop: 35
+    },
+    buttonIcon: {
+        fontSize: 32,
+        color: colors.white
     }
 })

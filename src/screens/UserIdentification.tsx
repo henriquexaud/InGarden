@@ -9,7 +9,8 @@ import {
     KeyboardAvoidingView,
     TouchableWithoutFeedback,
     Platform,
-    Keyboard
+    Keyboard,
+    Alert
 } from 'react-native';
 
 import { useNavigation } from '@react-navigation/core';
@@ -17,6 +18,7 @@ import { useNavigation } from '@react-navigation/core';
 import { Button } from '../components/Button';
 
 import colors from '../styles/colors';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function UserIdentification() {
     const navigation = useNavigation();
@@ -39,7 +41,16 @@ export function UserIdentification() {
         setName(value);
     }
 
-    function handleSubmit() {
+    async function handleSubmit() {
+        if (!name)
+            return Alert
+                .alert(
+                    'Eu preciso saber como você se chama pra continuarmos 😥'
+                );
+
+        await AsyncStorage.setItem('@myplants:user', name);
+
+
         navigation.navigate('Confirmation')
     }
 
