@@ -78,19 +78,18 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         color: colors.heading,
         lineHeight: 38,
-        marginTop: 15
     },
     subtitle: {
         fontSize: 17,
         fontFamily: fonts.text,
         textAlign: 'center',
-        paddingVertical: 10,
+        paddingTop: 10,
         color: colors.heading
     },
     footer: {
         justifyContent: 'center',
         alignItems: 'center',
-        paddingHorizontal: 50,
+        paddingHorizontal: 10,
         marginTop: 20
     },
     button: {
@@ -100,7 +99,7 @@ const styles = StyleSheet.create({
         borderRadius: 16,
         width: 60,
         height: 60,
-        marginTop: 35
+        marginTop: 10
     },
     buttonIcon: {
         fontSize: 32,
