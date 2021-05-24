@@ -155,6 +155,7 @@ const styles = StyleSheet.create({
         color: colors.heading,
         fontSize: 17,
         marginTop: 10,
+        marginBottom: 30
     },
     controller: {
         backgroundColor: colors.white,
