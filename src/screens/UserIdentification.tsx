@@ -43,15 +43,14 @@ export function UserIdentification() {
 
     async function handleSubmit() {
         if (!name)
-            return Alert
-                .alert(
-                    'Eu preciso saber como você se chama pra continuarmos 😥'
-                );
+            return Alert.alert('Eu preciso saber como você se chama pra continuarmos 😥');
 
-        await AsyncStorage.setItem('@myplants:user', name);
-
-
-        navigation.navigate('Confirmation')
+        try {
+            await AsyncStorage.setItem('@myplants:user', name);
+            navigation.navigate('Confirmation')
+        } catch {
+            return Alert.alert('Não foi possível salvar seu nome 😥');
+        }
     }
 
     return (

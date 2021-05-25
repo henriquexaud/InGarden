@@ -20,20 +20,10 @@ import fonts from '../styles/fonts';
 import { useRoute } from '@react-navigation/core';
 import DateTimePicker, { Event } from '@react-native-community/datetimepicker';
 import { format, isBefore } from 'date-fns';
+import { loadPlant, PlantProps, savePlant } from '../libs/storage';
 
 interface Params {
-    plant: {
-        id: string;
-        name: string;
-        about: string;
-        water_tips: string;
-        photo: string;
-        environments: [string];
-        frequency: {
-            times: number;
-            repeat_every: string
-        }
-    }
+    plant: PlantProps;
 }
 
 export function PlantSave() {
@@ -59,6 +49,24 @@ export function PlantSave() {
 
     function handleOpenDateTimePickerForAndroid() {
         setShowDatePicker(oldState => !oldState);
+    }
+
+
+    async function handleSave() {
+        const data = await loadPlant();
+        console.log(data);
+
+
+        /* try {
+
+            await savePlant({
+                ...plant,
+                dateTimeNotification: selectedDateTime,
+            })
+
+        } catch {
+            Alert.alert('Não foi possível salvar sua planta')
+        } */
     }
 
     return (
@@ -120,7 +128,7 @@ export function PlantSave() {
 
                 <Button
                     title="Cadastrar planta"
-                    onPress={() => { }}
+                    onPress={handleSave}
                 />
 
             </View>
