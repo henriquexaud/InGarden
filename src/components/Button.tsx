@@ -13,7 +13,6 @@ interface ButtonProps extends TouchableOpacityProps {
     title: string;
 }
 
-
 export function Button({ title, ...rest }: ButtonProps) {
     return (
         <TouchableOpacity
@@ -28,7 +27,6 @@ export function Button({ title, ...rest }: ButtonProps) {
         </TouchableOpacity>
     )
 }
-
 
 const styles = StyleSheet.create({
     button: {

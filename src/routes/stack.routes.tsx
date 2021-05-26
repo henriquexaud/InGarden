@@ -45,8 +45,6 @@ const AppRoutes: React.FC = () => (
             component={PlantSave}
         />
 
-
-
     </stackRoutes.Navigator>
 )
 

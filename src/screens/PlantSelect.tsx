@@ -6,19 +6,18 @@ import {
     FlatList,
     ActivityIndicator
 } from 'react-native';
+import { useNavigation } from '@react-navigation/core';
 
 import colors from '../styles/colors';
-
-import { Header } from '../components/Header'
 import fonts from '../styles/fonts';
 
+import { Header } from '../components/Header'
 import { EnviromentButton } from '../components/EnviromentButton';
-
-import api from '../services/api';
 import { PlantCardPrimary } from '../components/PlantCardPrimary';
 import { Load } from '../components/Load';
-import { useNavigation } from '@react-navigation/core';
+
 import { PlantProps } from '../libs/storage';
+import api from '../services/api';
 
 interface EnviromentProps {
     key: string;
@@ -201,5 +200,4 @@ const styles = StyleSheet.create({
     loadingMore: {
         paddingBottom: 20
     }
-
 })

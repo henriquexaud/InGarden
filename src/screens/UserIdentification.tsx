@@ -12,13 +12,12 @@ import {
     Keyboard,
     Alert
 } from 'react-native';
-
 import { useNavigation } from '@react-navigation/core';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import { Button } from '../components/Button';
 
 import colors from '../styles/colors';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function UserIdentification() {
     const navigation = useNavigation();
@@ -69,7 +68,7 @@ export function UserIdentification() {
 
                                 <Text style={styles.text}>
                                     Como podemos {'\n'}
-                                chamar você?
+                                    chamar você?
                             </Text>
 
                             </View>

@@ -3,7 +3,6 @@ import {
     StyleSheet,
     View
 } from 'react-native';
-
 import LottieView from 'lottie-react-native';
 
 import loadAnimation from '../assets/load.json';
@@ -29,6 +28,6 @@ const styles = StyleSheet.create({
         marginBottom: 80
     },
     animation: {
-
+        // complete style
     }
 })

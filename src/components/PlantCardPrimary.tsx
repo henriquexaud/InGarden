@@ -3,7 +3,6 @@ import {
     StyleSheet,
     Text
 } from 'react-native';
-
 import { RectButton, RectButtonProps } from 'react-native-gesture-handler';
 import { SvgFromUri } from 'react-native-svg'
 

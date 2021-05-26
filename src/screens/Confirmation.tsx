@@ -6,9 +6,9 @@ import {
     View,
     Text,
 } from 'react-native';
-
 import { useNavigation } from '@react-navigation/core';
 import { TouchableOpacity } from 'react-native-gesture-handler';
+
 import { Feather } from '@expo/vector-icons';
 
 import colors from '../styles/colors';
@@ -27,6 +27,7 @@ export function Confirmation() {
                 <Text style={styles.emoji}>
                     😁
                 </Text>
+
                 <Text style={styles.title}>
                     Pronto!
                 </Text>

@@ -8,7 +8,6 @@ import {
   Jost_600SemiBold
 } from '@expo-google-fonts/jost';
 
-
 export default function App() {
   const [fontsLoaded] = useFonts({
     Jost_400Regular,
