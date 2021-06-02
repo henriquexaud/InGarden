@@ -6,7 +6,7 @@ import {
     View,
     Text,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/core';
+import { useNavigation, useRoute } from '@react-navigation/core';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 
 import { Feather } from '@expo/vector-icons';
@@ -14,26 +14,46 @@ import { Feather } from '@expo/vector-icons';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
+interface Params {
+    title: string;
+    subtitle: string;
+    icon: 'smile' | 'hug';
+    nextScreen: string;
+}
+
+const emojis = {
+    smile: '😃',
+    hug: '🤗'
+}
+
 export function Confirmation() {
     const navigation = useNavigation()
+    const routes = useRoute();
+
+    const {
+        title,
+        subtitle,
+        icon,
+        nextScreen
+    } = routes.params as Params;
 
     function handleMoveOn() {
-        navigation.navigate('PlantSelect');
+        navigation.navigate(nextScreen);
     }
 
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.content}>
                 <Text style={styles.emoji}>
-                    😁
+                    {emojis[icon]}
                 </Text>
 
                 <Text style={styles.title}>
-                    Pronto!
+                    {title}
                 </Text>
 
                 <Text style={styles.subtitle}>
-                    Agora vamos começar a cuidar de suas plantinhas.
+                    {subtitle}
                 </Text>
 
                 <View style={styles.footer}>
@@ -72,6 +92,7 @@ const styles = StyleSheet.create({
     },
     emoji: {
         fontSize: 60,
+        marginBottom: 10
     },
     title: {
         fontSize: 22,
