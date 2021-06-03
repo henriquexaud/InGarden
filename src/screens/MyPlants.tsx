@@ -5,6 +5,7 @@ import {
     Text,
     Image,
     ActivityIndicator,
+    FlatList
 } from 'react-native'
 
 import { Header } from '../components/Header';
@@ -14,17 +15,29 @@ import waterdrop from '../assets/waterdrop.png';
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
-import { FlatList } from 'react-native-gesture-handler';
+import { PlantCardSecondary } from '../components/PlantCardSecondary';
 import { PlantCardPrimary } from '../components/PlantCardPrimary';
 import { PlantProps, loadPlant } from '../libs/storage';
 import { formatDistance } from 'date-fns';
 import { pt } from 'date-fns/locale';
+import { Load } from '../components/Load';
 
 
 export function MyPlants() {
     const [myPlants, setMyPlants] = useState<PlantProps[]>([]);
     const [loading, setLoading] = useState(true);
     const [nextWatered, setNextWatered] = useState<string>()
+
+    const [loadingMore, setLoadingMore] = useState(false);
+    const [page, setPage] = useState(1);
+
+    function handleFetchMore(distance: number) {
+        if (distance < 1)
+            return;
+
+        setLoadingMore(true);
+        setPage(oldValue => oldValue + 1);
+    }
 
     useEffect(() => {
         async function loadStorageData() {
@@ -45,7 +58,11 @@ export function MyPlants() {
         }
 
         loadStorageData();
+
     }, [])
+
+    if (loading)
+        return <Load />
 
 
     return (
@@ -70,10 +87,10 @@ export function MyPlants() {
                     data={myPlants}
                     keyExtractor={(item) => String(item.id)}
                     renderItem={({ item }) => (
-                        <Text>Elemento</Text>
+                        <PlantCardSecondary data={item} />
                     )}
                     showsVerticalScrollIndicator={false}
-                    contentContainerStyle={{ flex: 1 }}
+                //contentContainerStyle={{ flex: 1 }}
                 />
 
             </View>
@@ -86,31 +103,33 @@ export function MyPlants() {
 
 const styles = StyleSheet.create({
     container: {
+        flex: 1,
         paddingHorizontal: 30,
-        paddingTop: 40,
-        justifyContent: 'center',
-        alignItems: 'center'
+        paddingTop: 30,
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        backgroundColor: colors.background,
     },
     tipContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         alignItems: 'center',
         backgroundColor: colors.blue_light,
-        padding: 20,
+        paddingHorizontal: 20,
         borderRadius: 20,
-        marginVertical: 30
+        height: 100,
+        marginTop: 20
     },
     tipImage: {
-        width: 56,
-        height: 56
+        width: 50,
+        height: 50
     },
     tipText: {
         flex: 1,
-        marginLeft: 20,
-        fontFamily: fonts.text,
         color: colors.blue,
-        fontSize: 17,
-        textAlign: 'justify'
+        paddingHorizontal: 20,
+        fontFamily: fonts.text,
+        fontSize: 15
     },
     plantsContainer: {
         flex: 1,
@@ -122,5 +141,8 @@ const styles = StyleSheet.create({
         fontSize: 24,
         marginVertical: 20,
     },
+    loadingMore: {
+        paddingBottom: 20
+    }
 
 })
