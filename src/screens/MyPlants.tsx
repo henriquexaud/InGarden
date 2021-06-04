@@ -16,7 +16,6 @@ import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
 import { PlantCardSecondary } from '../components/PlantCardSecondary';
-import { PlantCardPrimary } from '../components/PlantCardPrimary';
 import { PlantProps, loadPlant } from '../libs/storage';
 import { formatDistance } from 'date-fns';
 import { pt } from 'date-fns/locale';
@@ -58,12 +57,10 @@ export function MyPlants() {
         }
 
         loadStorageData();
-
     }, [])
 
     if (loading)
         return <Load />
-
 
     return (
         <View style={styles.container}>
