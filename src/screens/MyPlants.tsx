@@ -5,7 +5,8 @@ import {
     Text,
     Image,
     ActivityIndicator,
-    FlatList
+    FlatList,
+    Alert
 } from 'react-native'
 
 import { Header } from '../components/Header';
@@ -20,6 +21,7 @@ import { PlantProps, loadPlant } from '../libs/storage';
 import { formatDistance } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import { Load } from '../components/Load';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 
 export function MyPlants() {
@@ -27,15 +29,23 @@ export function MyPlants() {
     const [loading, setLoading] = useState(true);
     const [nextWatered, setNextWatered] = useState<string>()
 
-    const [loadingMore, setLoadingMore] = useState(false);
-    const [page, setPage] = useState(1);
+    function handleRemove(plant: PlantProps) {
+        Alert.alert('Remover', `Deseja remover a ${plant.name}?`, [
+            {
+                text: 'Não',
+                style: 'cancel'
+            },
+            {
+                text: 'Sim',
+                onPress: async () => {
+                    try {
+                        const data = await AsyncStorage.getItem('')
+                    } catch (error) {
 
-    function handleFetchMore(distance: number) {
-        if (distance < 1)
-            return;
-
-        setLoadingMore(true);
-        setPage(oldValue => oldValue + 1);
+                    }
+                }
+            }
+        ])
     }
 
     useEffect(() => {
@@ -84,7 +94,10 @@ export function MyPlants() {
                     data={myPlants}
                     keyExtractor={(item) => String(item.id)}
                     renderItem={({ item }) => (
-                        <PlantCardSecondary data={item} />
+                        <PlantCardSecondary
+                            data={item}
+                            handleRemove={() => { handleRemove(item) }}
+                        />
                     )}
                     showsVerticalScrollIndicator={false}
                 //contentContainerStyle={{ flex: 1 }}
