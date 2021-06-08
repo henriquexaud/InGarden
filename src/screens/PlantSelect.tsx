@@ -80,7 +80,6 @@ export function PlantSelect() {
         setLoading(false);
     }
 
-
     useEffect(() => {
         async function fetchEnviroment() {
             const { data } = await api
@@ -107,10 +106,8 @@ export function PlantSelect() {
 
     return (
         <View style={styles.container}>
-
             <View style={styles.header}>
                 <Header />
-
                 <Text style={styles.title}>
                     Em qual ambiente
                 </Text>
@@ -118,6 +115,7 @@ export function PlantSelect() {
                     Você deseja colocar sua planta?
                 </Text>
             </View>
+
             <View style={styles.enviromentList}>
                 <FlatList
                     data={enviroments}

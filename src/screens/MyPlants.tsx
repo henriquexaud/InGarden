@@ -23,7 +23,6 @@ import { pt } from 'date-fns/locale';
 import { Load } from '../components/Load';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
-
 export function MyPlants() {
     const [myPlants, setMyPlants] = useState<PlantProps[]>([]);
     const [loading, setLoading] = useState(true);
@@ -100,13 +99,8 @@ export function MyPlants() {
                         />
                     )}
                     showsVerticalScrollIndicator={false}
-                //contentContainerStyle={{ flex: 1 }}
                 />
-
             </View>
-
-
-
         </View>
     )
 }
@@ -154,5 +148,4 @@ const styles = StyleSheet.create({
     loadingMore: {
         paddingBottom: 20
     }
-
 })

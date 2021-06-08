@@ -27,7 +27,6 @@ export function Welcome() {
     return (
         <SafeAreaView style={styles.container}>
             <View style={styles.wrapper}>
-
                 <Text style={styles.title}>
                     Cuide de {'\n'}
                     suas plantas {'\n'}

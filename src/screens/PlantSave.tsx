@@ -21,7 +21,7 @@ import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
 import { format, isBefore } from 'date-fns';
-import { loadPlant, PlantProps, savePlant } from '../libs/storage';
+import { PlantProps, savePlant } from '../libs/storage';
 
 interface Params {
     plant: PlantProps;
@@ -40,12 +40,10 @@ export function PlantSave() {
         if (Platform.OS === 'android') {
             setShowDatePicker(oldState => !oldState);
         }
-
         if (dateTime && isBefore(dateTime, new Date())) {
             setSelectedDateTime(new Date());
             return Alert.alert('Escolha uma hora no futuro! ⏰')
         }
-
         if (dateTime)
             setSelectedDateTime(dateTime);
     }
@@ -54,21 +52,18 @@ export function PlantSave() {
         setShowDatePicker(oldState => !oldState);
     }
 
-
     async function handleSave() {
         try {
             await savePlant({
                 ...plant,
                 dateTimeNotification: selectedDateTime
             });
-
             navigation.navigate('Confirmation', {
                 title: 'Tudo certo',
                 subtitle: 'Fique tranquilo que sempre iremos lembrar você de cuidar das sua plantinhas com muito cuidado',
                 icon: 'hug',
                 nextScreen: 'MyPlants'
             });
-
         } catch {
             Alert.alert('Não foi possível salvar sua planta')
         }
@@ -86,14 +81,12 @@ export function PlantSave() {
                         height={150}
                         width={150}
                     />
-
                     <Text style={styles.plantName}>
                         {plant.name}
                     </Text>
                     <Text style={styles.plantAbout}>
                         {plant.about}
                     </Text>
-
                 </View>
 
                 <View style={styles.controller}>
@@ -111,7 +104,7 @@ export function PlantSave() {
 
                         <Text style={styles.alertLabel}>
                             Escolha o melhor horário para ser lembrado:
-                </Text>
+                        </Text>
 
                         {showDatePicker && (
                             <DateTimePicker
@@ -132,15 +125,14 @@ export function PlantSave() {
                                     {`Lembrar ${format(selectedDateTime, 'HH:mm')}`}
                                 </Text>
                             </TouchableOpacity>
-
                         )}
-
                     </View>
 
                     <Button
                         title="Cadastrar planta"
                         onPress={handleSave}
                     />
+
                 </View>
             </View >
         </ScrollView>
