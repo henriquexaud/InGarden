@@ -28,6 +28,10 @@ const styles = StyleSheet.create({
         marginBottom: 80
     },
     animation: {
-        // complete style
+        backgroundColor: 'transparent',
+        height: 150,
+        width: 150,
+        position: 'relative',
+        top: 20
     }
 })
