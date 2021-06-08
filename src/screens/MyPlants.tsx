@@ -16,11 +16,10 @@ import colors from '../styles/colors';
 import fonts from '../styles/fonts';
 
 import { PlantCardSecondary } from '../components/PlantCardSecondary';
-import { PlantProps, loadPlant, StoragePlantProps } from '../libs/storage';
+import { PlantProps, loadPlant, removePlant } from '../libs/storage';
 import { formatDistance } from 'date-fns';
 import { pt } from 'date-fns/locale';
 import { Load } from '../components/Load';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export function MyPlants() {
     const [myPlants, setMyPlants] = useState<PlantProps[]>([]);
@@ -37,21 +36,10 @@ export function MyPlants() {
                 text: 'Sim',
                 onPress: async () => {
                     try {
-                        const data = await AsyncStorage.getItem('@myplants:plants');
-                        const plants = data ? (JSON.parse(data) as StoragePlantProps) : {};
-
-                        delete plants[plant.id];
-
-                        await AsyncStorage.setItem(
-                            '@myplants:plants',
-                            JSON.stringify(plants)
-                        );
-
+                        await removePlant(plant.id);
                         setMyPlants((oldData) =>
                             oldData.filter((item) => item.id !== plant.id)
                         );
-
-
                     } catch (error) {
                         Alert.alert('Não foi possível remover')
                     }
@@ -71,7 +59,7 @@ export function MyPlants() {
             );
 
             setNextWatered(
-                `Não esqueça de regar a ${plantsStorage[0].name} à ${nextTime} horas.`
+                `Não esqueça de regar a ${plantsStorage[0].name} à ${nextTime}.`
             )
 
             setMyPlants(plantsStorage);
