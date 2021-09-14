@@ -1,18 +1,20 @@
 # MyPlants
 
-Mobile App to help users remember to take care from your plants.
+Aplicação mobile que lembra o usuário a hora ideal de regar suas plantas.
 
-1 - Install expo using terminal:
+1 - Abra o projeto com sua IDE (recomendo o VS Code)
+
+1 - Instale o expo usando o terminal:
     $ npm install --global expo-cli
 
-2 - Find your machine IP and set it on ./src/services/api.ts   
+2 - Configure o IP de sua máquina no arquivo ./src/services/api.ts   
 
-3 - Start the JSON API using the command:
-    $ json-server ./src/services/server.json --host (Machine IP. ex: 192.168.1.11) --port 3333 --delay 800
+3 - Inicie a JSON API usando o comando abaixo no terminal:
+    $ json-server ./src/services/server.json --host SEU_IP_AQUI --port 3333 --delay 800
 
-4 - Install Expo Go App on your mobile device
+4 - Instale o aplicativo Expo Go no seu dispositivo mobile
 
-5 - Start Expo using the terminal:
+5 - Inicie o expo digitando o comando abaixo no terminal:
     $ expo start
 
-6 - Scan the QR Code on your browser
+6 - Escaneie o QR Code que aparecerá no seu navegador com a camera do celular.
