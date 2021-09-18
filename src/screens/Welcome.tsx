@@ -12,7 +12,7 @@ import { useNavigation } from '@react-navigation/core';
 
 import { Feather } from '@expo/vector-icons';
 
-import wateringImg from '../assets/watering.png';
+import wateringImg from '../assets/welcome.png';
 
 import colors from '../styles/colors';
 import fonts from '../styles/fonts';
@@ -62,7 +62,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'space-around',
         alignItems: 'center',
-        paddingVertical: 80
+        paddingVertical: 100
     },
     title: {
         fontSize: 28,
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.green,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 16,
+        borderRadius: 12,
         width: 60,
         height: 60,
         marginTop: 35

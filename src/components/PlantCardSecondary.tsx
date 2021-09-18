@@ -69,6 +69,7 @@ const styles = StyleSheet.create({
         width: '100%',
         paddingVertical: 25,
         paddingHorizontal: 10,
+        paddingRight: 20,
         borderRadius: 20,
         flexDirection: 'row',
         alignItems: 'center',
@@ -80,7 +81,7 @@ const styles = StyleSheet.create({
         marginLeft: 10,
         fontFamily: fonts.heading,
         fontSize: 17,
-        color: colors.heading
+        color: colors.heading,
     },
     details: {
         alignItems: 'flex-end',

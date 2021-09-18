@@ -22,8 +22,8 @@ interface Params {
 }
 
 const emojis = {
-    smile: '😃',
-    hug: '🤗'
+    smile: '🐌',
+    hug: '💧'
 }
 
 export function Confirmation() {
@@ -91,7 +91,7 @@ const styles = StyleSheet.create({
         paddingHorizontal: 60
     },
     emoji: {
-        fontSize: 60,
+        fontSize: 40,
         marginBottom: 10
     },
     title: {
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
         backgroundColor: colors.green,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 16,
+        borderRadius: 12,
         width: 60,
         height: 60,
         marginTop: 10

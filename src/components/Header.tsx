@@ -10,7 +10,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 
 import fonts from '../styles/fonts';
 import colors from '../styles/colors';
-import userImage from '../assets/perfil.png';
+import userImage from '../assets/user.png';
 
 export function Header() {
     const [userName, setUserName] = useState<string>();

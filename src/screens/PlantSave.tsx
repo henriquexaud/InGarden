@@ -59,8 +59,8 @@ export function PlantSave() {
                 dateTimeNotification: selectedDateTime
             });
             navigation.navigate('Confirmation', {
-                title: 'Tudo certo',
-                subtitle: 'Fique tranquilo que sempre iremos lembrar você de cuidar das sua plantinhas com muito cuidado',
+                title: 'Tudo certo!',
+                subtitle: 'Fique tranquilo que sempre lembrarei você a hora certa de regar sua plata',
                 icon: 'hug',
                 nextScreen: 'MyPlants'
             });

@@ -70,7 +70,7 @@ export function UserIdentification() {
                         <View style={styles.form}>
                             <View style={styles.header}>
                                 <Text style={styles.emoji}>
-                                    {isFilled ? '😃' : '😄'}
+                                    {isFilled ? '🌱' : '🌰'}
                                 </Text>
 
                                 <Text style={styles.text}>
@@ -131,7 +131,7 @@ const styles = StyleSheet.create({
         marginTop: 20
     },
     text: {
-        fontSize: 24,
+        fontSize: 22,
         textAlign: 'center',
         lineHeight: 32,
         color: colors.heading,
@@ -141,7 +141,7 @@ const styles = StyleSheet.create({
         borderBottomWidth: 1,
         borderColor: colors.gray,
         color: colors.heading,
-        width: '100%',
+        width: '70%',
         fontSize: 18,
         marginTop: 30,
         padding: 10,
@@ -149,7 +149,7 @@ const styles = StyleSheet.create({
     },
     button: {
         width: '100%',
-        marginTop: 40,
+        marginTop: 30,
         paddingHorizontal: 20
     }
 })
