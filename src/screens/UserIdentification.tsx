@@ -21,7 +21,7 @@ import colors from '../styles/colors';
 
 export function UserIdentification() {
     const navigation = useNavigation();
-
+  
     const [isFocused, setIsFocused] = useState(false);
     const [isFilled, setIsFilled] = useState(false);
     const [name, setName] = useState<string>();
