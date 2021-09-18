@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
         fontFamily: fonts.heading
     },
     image: {
-        height: Dimensions.get('window').width * 0.7
+        height: Dimensions.get('window').width * 0.6
     },
     button: {
         backgroundColor: colors.green,
