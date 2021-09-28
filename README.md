@@ -1,6 +1,6 @@
 # MyPlants
 
-Aplicação mobile que lembra o usuário a hora ideal de regar suas plantas.
+Aplicação mobile para o gerenciamento de plantas.
 
     1 - Abra o projeto com sua IDE (recomendo o VS Code)
 
