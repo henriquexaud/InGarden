@@ -1,6 +1,6 @@
 # MyPlants
 
-Aplicação mobile para o gerenciamento de plantas.
+Aplicação mobile para gerenciamento de plantas.
 
     1 - Abra o projeto com sua IDE (recomendo o VS Code)
 
